@@ -1,5 +1,5 @@
 import createReducer from '../utils/createReducer'
-import { TODO_ADD, TODO_CHANGE } from './todo.actions'
+import { addTodo, changeTodo } from './todo.creators'
 
 const todoAdd = (state, {title}) => ({
   ...state,
@@ -13,8 +13,8 @@ const todoChange = (state, {title}) => ({
 })
 
 const todoReducer = createReducer({
-  [TODO_ADD]: todoAdd,
-  [TODO_CHANGE]: todoChange
+  [addTodo]: todoAdd,
+  [changeTodo]: todoChange
 })
 
 export default todoReducer;

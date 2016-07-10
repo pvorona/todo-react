@@ -1,13 +1,7 @@
 import { TODO_ADD, TODO_CHANGE } from './todo.actions'
+import createAction from '../utils/createAction'
 
-const addTodo = title => ({
-  type: TODO_ADD,
-  title
-})
+const addTodo = createAction(TODO_ADD)
+const changeTodo = createAction(TODO_CHANGE)
 
-const changeTodo = title => ({
-  type: TODO_CHANGE,
-  title
-})
-
-export {addTodo, changeTodo}
+export { addTodo, changeTodo }

@@ -8,11 +8,11 @@ const NewTodo = ({title, dispatch}) => {
   const onSubmit = (e) => {
     e.preventDefault()
     if (!title) return
-    dispatch(addTodo(title))
+    dispatch(addTodo({title}))
   }
 
   const onChange = e =>
-    dispatch(changeTodo(e.target.value))
+    dispatch(changeTodo({title: e.target.value}))
 
   return (
     <form onSubmit={onSubmit}>
