@@ -2,33 +2,25 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { TextInput } from '../components'
 import { addTodo, changeTodo } from './todo.creators'
+import { getNewTodo } from './todo.selectors'
 
-class NewTodo extends Component {
-  onSubmit (e) {
+const NewTodo = ({title, dispatch}) => {
+  const onSubmit = (e) => {
     e.preventDefault()
-    if (!this.props.title) return
-    this.props.dispatch(addTodo(this.props.title))
+    if (!title) return
+    dispatch(addTodo(title))
   }
 
-  onChange (e) {
-    this.props.dispatch(changeTodo(e.target.value))
-  }
+  const onChange = e =>
+    dispatch(changeTodo(e.target.value))
 
-  render () {
-    return (
-      <form onSubmit={::this.onSubmit}>
-        <TextInput
-          onChange={::this.onChange}
-          value={this.props.title} />
-      </form>
-    )
-  }
+  return (
+    <form onSubmit={onSubmit}>
+      <TextInput
+        onChange={onChange}
+        value={title} />
+    </form>
+  )
 }
 
-const mapStateToProps = (state) => ({
-  title: state.newTodo
-})
-
-export default connect(
-  mapStateToProps
-)(NewTodo)
+export default connect(getNewTodo)(NewTodo)
