@@ -30,4 +30,4 @@ const todoReducer = createReducer({
   [changeTodo]: todoChange
 })
 
-export { todoReducer, todoAdd }
+export { todoReducer, todoAdd, newTodoChange }
