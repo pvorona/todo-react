@@ -7,4 +7,3 @@ const render = _ =>
   ReactDOM.render(<App />, document.getElementById('root'))
 
 render()
-store.subscribe(render)
