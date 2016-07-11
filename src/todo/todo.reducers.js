@@ -1,4 +1,4 @@
-import createReducer from '../utils/createReducer'
+import { createReducer } from '../utils'
 import { addTodo, changeTodo } from './todo.creators'
 
 const todoAdd = (state, {title}) => ({
