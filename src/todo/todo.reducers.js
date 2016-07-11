@@ -1,10 +1,9 @@
 import { createReducer } from '../utils'
 import { addTodo, changeTodo, changeNewTodo } from './todo.creators'
-import { Todo } from './Todo'
 
 const todoAdd = (state, {title}) => ({
   ...state,
-  todos: [...state.todos, new Todo({title})],
+  // todos: [...state.todos, {title}],
   newTodo: ''
 })
 
@@ -19,7 +18,7 @@ const todoChange = (state, {title, id}) => {
     ...state,
     todos: [
       ...todos.slice(0, id),
-      todos[id].merge({title}),
+      Object.assign({}, todos[id], {title}),
       ...todos.slice(id + 1)
     ]
   }
@@ -31,4 +30,4 @@ const todoReducer = createReducer({
   [changeTodo]: todoChange
 })
 
-export default todoReducer;
+export { todoReducer, todoAdd }
