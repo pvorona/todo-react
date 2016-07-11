@@ -14,11 +14,13 @@ const newTodoChange = (state, {title}) => ({
 
 const todoChange = (state, {title, id}) => {
   const { todos } = state
-  const newTodos = [...todos]
-  newTodos[id].title = title
   return {
     ...state,
-    todos: newTodos
+    todos: [
+      ...todos.slice(0, id),
+      {title},
+      ...todos.slice(id + 1)
+    ]
   }
 }
 
