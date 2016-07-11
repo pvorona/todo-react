@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { TextInput } from '../components'
-import { addTodo, changeTodo } from './todo.creators'
+import { addTodo, changeNewTodo } from './todo.creators'
 import { getNewTodo } from './todo.selectors'
 
 const NewTodo = ({title, dispatch}) => {
@@ -12,11 +12,12 @@ const NewTodo = ({title, dispatch}) => {
   }
 
   const onChange = e =>
-    dispatch(changeTodo({title: e.target.value}))
+    dispatch(changeNewTodo({title: e.target.value}))
 
   return (
     <form onSubmit={onSubmit}>
       <TextInput
+        className='c-input c-input--animated-shadow c-input--animated-border-2'
         onChange={onChange}
         value={title} />
     </form>
