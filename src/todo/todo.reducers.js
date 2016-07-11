@@ -3,7 +3,7 @@ import { addTodo, changeTodo, changeNewTodo } from './todo.creators'
 
 const todoAdd = (state, {title}) => ({
   ...state,
-  // todos: [...state.todos, {title}],
+  todos: [...state.todos, {title}],
   newTodo: ''
 })
 
