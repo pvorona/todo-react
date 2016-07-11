@@ -5,7 +5,7 @@ import { addTodo, changeNewTodo } from './todo.creators'
 import { getNewTodo } from './todo.selectors'
 
 const NewTodo = ({title, dispatch}) => {
-  const onSubmit = (e) => {
+  const onSubmit = e => {
     e.preventDefault()
     if (!title) return
     dispatch(addTodo({title}))

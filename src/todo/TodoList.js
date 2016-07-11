@@ -8,7 +8,8 @@ const TodoList = ({todos, dispatch}) => {
   const onChange = (id, e) =>
     dispatch(changeTodo({id, title: e.target.value}))
 
-  return (<ul>
+  return (
+    <ul>
       {todos.map((todo, i) =>
         <li key={i}>
           <TextInput
@@ -16,7 +17,8 @@ const TodoList = ({todos, dispatch}) => {
             onChange={onChange.bind(this, i)}
             value={todo.title} />
         </li>)}
-    </ul>)
+    </ul>
+  )
 }
 
 export default connect(getTodos)(TodoList)
