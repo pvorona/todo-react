@@ -17,6 +17,7 @@ const NewTodo = ({title, dispatch}) => {
   return (
     <form onSubmit={onSubmit}>
       <TextInput
+        placeholder='What needs to be done?'
         className='c-input c-input--animated-shadow c-input--animated-border-2'
         onChange={onChange}
         value={title} />
