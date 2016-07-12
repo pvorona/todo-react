@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { TextInput } from '../components'
-import { addTodo, changeNewTodo } from './todo.creators'
+import { addTodo } from './todos/todo.creators'
+import { changeNewTodo, clearNewTodo } from './new-todo/new-todo.creators'
 import { getNewTodo } from './todo.selectors'
 
 const NewTodo = ({title, dispatch}) => {
   const onSubmit = e => {
     e.preventDefault()
     if (!title) return
-    dispatch(addTodo({title}))
+    dispatch([addTodo({title}), clearNewTodo()])
   }
 
   const onChange = e =>

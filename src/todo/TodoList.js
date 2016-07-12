@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getTodos } from './todo.selectors'
 import { TextInput } from '../components'
-import { changeTodo } from './todo.creators'
+import { changeTodo } from './todos/todo.creators'
 
 const TodoList = ({todos, dispatch}) => {
   const onChange = (id, e) =>

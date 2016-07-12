@@ -1,6 +1,7 @@
-import { createStore, combineReducers } from 'redux'
-import { todoReducer } from './todo/todo.reducers'
-import { newTodoReducer } from './todo/new-todo.reducers'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { todoReducer } from './todo/todos'
+import { newTodoReducer } from './todo/new-todo'
+import { multi } from './utils'
 
 const initialState = {
   todos: [],
@@ -12,6 +13,9 @@ const reducers = combineReducers({
   newTodo: newTodoReducer
 })
 
-const store = createStore(reducers, initialState, window.devToolsExtension && window.devToolsExtension())
+const store =
+  createStore(reducers, initialState, applyMiddleware(multi))
+
+  // , window.devToolsExtension && window.devToolsExtension()
 
 export default store

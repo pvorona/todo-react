@@ -1,12 +1,12 @@
-import { ADD_TODO, NEW_TODO_CHANGE } from './todo.actions'
-import { todoAdd, newTodoChange } from './new-todo.reducers'
-import { addTodo, changeNewTodo } from './todo.creators'
+import { NEW_TODO_CLEAR, NEW_TODO_CHANGE } from './new-todo.actions'
+import { newTodoClear, newTodoChange } from './new-todo.reducers'
+import { clearNewTodo, changeNewTodo } from './new-todo.creators'
 
 describe('newTodo', () => {
-  describe(ADD_TODO, () => {
+  describe(NEW_TODO_CLEAR, () => {
     it('sets newTodo to empty string', () => {
-      const action = addTodo()
-      const actual = todoAdd({}, action)
+      const action = clearNewTodo()
+      const actual = newTodoClear({}, action)
 
       expect(actual).to.equal('')
     })
