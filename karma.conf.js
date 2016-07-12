@@ -15,14 +15,14 @@ module.exports = config => {
         require('karma-webpack'),
         'karma-mocha',
         'karma-chai',
-        'karma-phantomjs-launcher'
+        'karma-chrome-launcher'
     ],
     reporters: ['progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
     singleRun: false,
     concurrency: Infinity,
     webpack,
