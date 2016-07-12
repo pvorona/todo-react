@@ -4,21 +4,19 @@ import { getTodos } from './todo.selectors'
 import { TextInput } from '../components'
 import { changeTodo } from './todos/todo.creators'
 
-const TodoList = ({todos, dispatch}) => {
-  const onChange = (id, e) =>
-    dispatch(changeTodo({id, title: e.target.value}))
+const TodoList = ({todos, onChange, dispatch}) =>
+  <ul>
+    {todos.map((todo, i) =>
+      <li key={i}>
+        <TextInput
+          className='c-input c-input--animated-shadow c-input--animated-border-1'
+          onChange={onChange.bind(this, i)}
+          value={todo.title} />
+      </li>)}
+  </ul>
 
-  return (
-    <ul>
-      {todos.map((todo, i) =>
-        <li key={i}>
-          <TextInput
-            className='c-input c-input--animated-shadow c-input--animated-border-1'
-            onChange={onChange.bind(this, i)}
-            value={todo.title} />
-        </li>)}
-    </ul>
-  )
-}
+const mapDispatchToProps = dispatch => ({
+  onChange: (id, e) => dispatch(changeTodo({id, title: e.target.value}))
+})
 
-export default connect(getTodos)(TodoList)
+export default connect(getTodos, mapDispatchToProps)(TodoList)
