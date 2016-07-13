@@ -7,7 +7,7 @@ import { changeTodo } from './todos/todo.creators'
 const TodoList = ({todos, onChange}) =>
   <ul>
     {todos.map((todo, i) =>
-      <li key={i} className='todo-list__item'>
+      <li key={i} className='todo-list__item todo-list__item--animated-fadein'>
         <TextInput
           className='c-input c-input--animated-shadow c-input--animated-border-1'
           onChange={onChange.bind(this, i)}
