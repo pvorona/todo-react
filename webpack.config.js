@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -16,7 +15,6 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    new ExtractTextPlugin('bundle.css'),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './index.html'
@@ -29,7 +27,7 @@ module.exports = {
       include: path.join(__dirname, 'src')
     }, {
       test: /\.(scss|sass)?$/,
-      loader: ExtractTextPlugin.extract('style', 'css!postcss!sass'),
+      loaders: ['style', 'css', 'postcss', 'sass'],
       include: path.join(__dirname, 'src')
     }]
   },
