@@ -4,7 +4,7 @@ import { getTodos } from './todo.selectors'
 import { TextInput } from '../components'
 import { changeTodo } from './todos/todo.creators'
 
-const TodoList = ({todos, onChange, dispatch}) =>
+const TodoList = ({todos, onChange}) =>
   <ul>
     {todos.map((todo, i) =>
       <li key={i} className='todo-list__item'>
