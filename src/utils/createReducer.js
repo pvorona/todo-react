@@ -1,4 +1,4 @@
-const createReducer = (settings, initialState = []) => (state = initialState, action) =>
-  settings[action.type] ? settings[action.type](state, action) : state
+const createReducer = (handlers, initialState = []) => (state = initialState, action) =>
+  handlers[action.type] ? handlers[action.type](state, action) : state
 
 export default createReducer
