@@ -1,0 +1,7 @@
+.new-todo {
+  transition: .4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  transition-property: opacity;
+  position: relative;
+  display: flex;
+  width: 750px;
+}

@@ -1,0 +1,47 @@
+.todo--editing {
+  .todo-list__item:not(.todo-list__item--editing), .new-todo {
+    opacity: .25;
+  }
+}
+
+.todo--editing {
+  .c-input--animated-border-2 {
+    animation: a-input-animated-border-2-no-border .4s forwards;
+  }
+}
+
+@keyframes a-input-animated-border-2-no-border {
+  from {
+    background-size: 2px 0, 80% 2px, 2px 0;
+  }
+  to {
+    background-size: 2px 0, 0 2px, 2px 0;
+  }
+}
+
+.todo-list {
+  margin-top: 50px;
+
+  &__item {
+    position: relative;
+    margin: 5px 0;
+    display: flex;
+    transition: .4s cubic-bezier(0.65, 0.05, 0.36, 1);
+    transition-property: opacity;
+
+    &--animated-fadein {
+      animation: a-todo-item-animated-fadein .75s;
+    }
+  }
+}
+
+@keyframes a-todo-item-animated-fadein {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

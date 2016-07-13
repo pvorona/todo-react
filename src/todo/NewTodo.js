@@ -16,10 +16,12 @@ const NewTodo = ({title, dispatch}) => {
     dispatch(changeNewTodo({title: e.target.value}))
 
   return (
-    <form onSubmit={onSubmit}>
+    <form
+      className='new-todo'
+      onSubmit={onSubmit}>
       <TextInput
         placeholder='What needs to be done?'
-        className='c-input c-input--animated-shadow c-input--animated-border-2'
+        className='c-input c-input--animated-shadow c-input--animated-placeholder c-input--animated-border-2 text-big'
         onChange={onChange}
         value={title} />
     </form>
