@@ -18,13 +18,13 @@ const NewTodo = ({title, onSubmit, onChange}) =>
   </form>
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: e => {
+  onSubmit (e) {
     e.preventDefault()
     const title = e.currentTarget.newTodo.value
     if (!title) return
     dispatch([addTodo({title}), clearNewTodo()])
   },
-  onChange: e =>
+  onChange (e)
     dispatch(changeNewTodo({title: e.target.value}))
 })
 

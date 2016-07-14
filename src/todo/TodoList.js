@@ -16,7 +16,9 @@ const TodoList = ({todos, onChange}) =>
   </ul>
 
 const mapDispatchToProps = dispatch => ({
-  onChange: (id, e) => dispatch(changeTodo({id, title: e.target.value}))
+  onChange (id, e) {
+    dispatch(changeTodo({id, title: e.target.value}))
+  }
 })
 
 export default connect(getTodos, mapDispatchToProps)(TodoList)
