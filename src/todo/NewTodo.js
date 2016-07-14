@@ -13,7 +13,7 @@ const NewTodo = ({title, onSubmit, onChange}) =>
     <TextInput
       name='newTodo'
       placeholder='What needs to be done?'
-      className='c-input c-input--animated-shadow c-input--animated-placeholder c-input--animated-border-2 text-big'
+      className='new-todo__input'
       onChange={onChange}
       value={title} />
   </form>

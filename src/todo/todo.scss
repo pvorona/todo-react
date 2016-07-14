@@ -1,7 +1,19 @@
+@import '../styles/input/input.scss';
+@import '../styles/typography/typography.scss';
+
 .new-todo {
   transition: .4s cubic-bezier(0.65, 0.05, 0.36, 1);
   transition-property: opacity;
   position: relative;
   display: flex;
   width: 750px;
+
+  &__input {
+    @extend .c-input;
+    @extend .c-input--animated-shadow;
+    @extend .c-input--animated-placeholder;
+    @extend .c-input--animated-border-2;
+    @extend .text-big;
+  }
 }
+

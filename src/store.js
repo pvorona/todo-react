@@ -3,23 +3,26 @@ import { todoReducer } from './todo/todos'
 import { newTodoReducer } from './todo/new-todo'
 import { multi } from './utils'
 import throttle from 'lodash/throttle'
+import { save, get } from './storage'
 
-const initialState = {
+const defaultState = {
   todos: [],
   newTodo: ''
 }
+
+const initialState = get('state') || defaultState
 
 const reducers = combineReducers({
   todos: todoReducer,
   newTodo: newTodoReducer
 })
 
-const enhanser = compose(applyMiddleware(multi), window.devToolsExtension && window.devToolsExtension())
+const enhancer = compose(applyMiddleware(multi), window.devToolsExtension && window.devToolsExtension())
 
-const store = createStore(reducers, initialState, enhanser)
+const store = createStore(reducers, initialState, enhancer)
 
 store.subscribe(throttle(() => {
-  console.log('saving')
-}, 1000))
+  save('state', store.getState())
+}, 0))
 
 export default store
