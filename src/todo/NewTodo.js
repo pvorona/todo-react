@@ -24,8 +24,9 @@ const mapDispatchToProps = dispatch => ({
     if (!title) return
     dispatch([addTodo({title}), clearNewTodo()])
   },
-  onChange (e)
+  onChange (e) {
     dispatch(changeNewTodo({title: e.target.value}))
+  }
 })
 
 export default connect(getNewTodo, mapDispatchToProps)(NewTodo)
