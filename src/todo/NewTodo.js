@@ -7,6 +7,7 @@ import { getNewTodo } from './todo.selectors'
 
 const NewTodo = ({title, onSubmit, onChange}) =>
   <form
+    autoComplete='off'
     className='new-todo'
     onSubmit={onSubmit}>
     <TextInput
