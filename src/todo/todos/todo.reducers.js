@@ -8,8 +8,8 @@ const todoChange = (todos, {title, id}) => [
 ]
 
 const todoRemove = (todos, {id}) => [
-...todos.slice(0, id),
-...todos.slice(id + 1)
+  ...todos.slice(0, id),
+  ...todos.slice(id + 1)
 ]
 
 export { todoAdd, todoChange, todoRemove }

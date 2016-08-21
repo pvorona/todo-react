@@ -46,11 +46,16 @@
   }
 
   &--animated-border-1 {
+    background: linear-gradient($g-color-primary, $g-color-primary);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 0 2px;
+    transition: background .5s;
+
     &:focus, &[placeholder]:not(:placeholder-shown) {
-      background: linear-gradient($g-color-primary, $g-color-primary);
-      background-position: bottom center;
-      background-repeat: no-repeat;
-      animation: a-input-animated-border-1-in .5s forwards;
+      // animation: a-input-animated-border-1-in .5s forwards;
+      background-size: 100% 2px;
+
     }
   }
 

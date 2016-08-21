@@ -8,12 +8,10 @@
   display: flex;
   width: 750px;
 
-  &__input {
-    @extend .c-input;
-    @extend .c-input--animated-shadow;
-    @extend .c-input--animated-placeholder;
-    @extend .c-input--animated-border-2;
-    @extend .text-big;
-  }
+  @extend .c-input;
+  @extend .c-input--animated-shadow;
+  @extend .c-input--animated-placeholder;
+  @extend .c-input--animated-border-2;
+  @extend .text-big;
 }
 
