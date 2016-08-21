@@ -7,7 +7,9 @@ import { List } from './List'
 
 const mapTodos = ({todos, changeTodo, removeTodo}) =>
   todos.map((todo, i) =>
-    <li key={i} className='todo-list__item todo-list__item--animated-fadein'>
+    <li
+      key={i}
+      className='todo-list__item todo-list__item--animated-fadein'>
       <TextInput
         className='c-input c-input--animated-shadow c-input--animated-border-1'
         onChange={changeTodo.bind(this, i)}
