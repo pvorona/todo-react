@@ -24,7 +24,8 @@ const NewTodo = ({onKeyPress, onChange, clearNewTodo, value}) =>
 const mapDispatchToProps = (dispatch) => ({
   onKeyPress (e) {
     if (e.which === 13 && e.target.value) {
-      dispatch([addTodo({title: e.target.value}), clearNewTodo()])
+      dispatch(addTodo({title: e.target.value}))
+      dispatch(clearNewTodo())
     }
   },
   onChange (e) {
