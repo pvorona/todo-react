@@ -7,7 +7,7 @@
   background-color: transparent;
   color: $g-color-text-primary;
   padding: 11px 55px 11px 15px;
-  font-size: 20px;
+  font-size: 3.5vmin;
   flex: 1;
 
   &::selection {
@@ -109,10 +109,16 @@
     }
   }
 
-  &__check {
+  &__toggle {
     @extend %c-input__control;
+    right: 26px;
 
     &:hover {
+      visibility: visible;
+      color: $g-color-secondary;
+    }
+
+    .c-input:hover + & {
       visibility: visible;
     }
 

@@ -6,7 +6,8 @@
   transition-property: opacity;
   position: relative;
   display: flex;
-  width: 750px;
+  max-width: 750px;
+  width: calc(100vw - 10px);
 
   @extend .c-input;
   @extend .c-input--animated-shadow;

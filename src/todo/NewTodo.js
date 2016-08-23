@@ -5,14 +5,14 @@ import { addTodo } from './todos/todo.creators'
 import { changeNewTodo, clearNewTodo } from './new-todo/new-todo.creators'
 import { getNewTodo } from './todo.selectors'
 
-const NewTodo = ({onKeyPress, onChange, clearNewTodo, value}) =>
+const NewTodo = ({onKeyDown, onChange, clearNewTodo, value}) =>
   <div style={{position: 'relative'}}>
     <TextInput
       placeholder='What needs to be done?'
       className='new-todo'
       autoComplete="off"
       value={value}
-      onKeyPress={onKeyPress}
+      onKeyDown={onKeyDown}
       onChange={onChange}
     />
     <button
@@ -22,8 +22,11 @@ const NewTodo = ({onKeyPress, onChange, clearNewTodo, value}) =>
   </div>
 
 const mapDispatchToProps = (dispatch) => ({
-  onKeyPress (e) {
-    if (e.which === 13 && e.target.value) {
+  onKeyDown (e) {
+    if (e.keyCode === 27) {
+      dispatch(clearNewTodo())
+    }
+    if (e.keyCode === 13 && e.target.value) {
       dispatch(addTodo({title: e.target.value}))
       dispatch(clearNewTodo())
     }

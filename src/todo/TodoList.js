@@ -14,6 +14,7 @@ const mapTodos = ({todos, changeTodo, removeTodo}) =>
         className='c-input c-input--animated-shadow c-input--animated-border-1'
         onChange={changeTodo.bind(this, i)}
         value={todo.title}
+        onDbClick={() => console.log('lol')}
       />
       <div
         className="c-input__remove"
