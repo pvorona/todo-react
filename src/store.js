@@ -3,11 +3,7 @@ import { todoReducer } from './todo/todos'
 import { newTodoReducer } from './todo/new-todo'
 import throttle from 'lodash/throttle'
 import { save, get } from './storage'
-
-const defaultState = {
-  todos: [],
-  newTodo: ''
-}
+import { defaultState } from './default-state'
 
 const initialState = get('state') || defaultState
 

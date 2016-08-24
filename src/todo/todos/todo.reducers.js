@@ -12,4 +12,10 @@ const todoRemove = (todos, {id}) => [
   ...todos.slice(id + 1)
 ]
 
-export { todoAdd, todoChange, todoRemove }
+const toggleCompleted = (todos, {id}) => [
+  ...todos.slice(0, id),
+  Object.assign({}, todos[id], {completed: !todos[id].completed}),
+  ...todos.slice(id + 1)
+]
+
+export { todoAdd, todoChange, todoRemove, toggleCompleted }

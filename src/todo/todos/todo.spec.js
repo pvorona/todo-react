@@ -1,6 +1,6 @@
-import { ADD_TODO, TODO_CHANGE, TODO_REMOVE } from './todo.actions'
-import { addTodo, changeTodo, removeTodo } from './todo.creators'
-import { todoAdd, todoChange, todoRemove } from './todo.reducers'
+import { ADD_TODO, TODO_CHANGE, TODO_REMOVE, TODO_TOGGLE_COMPLETED } from './todo.actions'
+import { addTodo, changeTodo, removeTodo, toggleCompletedTodo } from './todo.creators'
+import { todoAdd, todoChange, todoRemove, toggleCompleted } from './todo.reducers'
 
 describe('todos', () => {
   describe(ADD_TODO, () => {
@@ -41,6 +41,27 @@ describe('todos', () => {
       expect(actual).to.deep.equal([
         {title: 'This is my girl'},
         {title: 'This is my pet'}
+      ])
+    })
+  })
+
+  describe(TODO_TOGGLE_COMPLETED, () => {
+    it('should toggle completed state', () => {
+      const initial = [
+        {title: 'Be happy, my friend'},
+        {title: 'Hope you will be ok'}
+      ]
+      const action = toggleCompletedTodo({id: 1})
+      const actual = toggleCompleted(initial, action)
+
+      expect(actual).to.deep.equal([
+        {title: 'Be happy, my friend'},
+        {title: 'Hope you will be ok', completed: true}
+      ])
+
+      expect(toggleCompleted(actual, action)).to.deep.equal([
+        {title: 'Be happy, my friend'},
+        {title: 'Hope you will be ok', completed: false}
       ])
     })
   })
