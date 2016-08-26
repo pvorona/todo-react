@@ -1,11 +1,11 @@
-import { newTodoChange } from '../new-todo/new-todo.reducers'
+import { newTodoChange as changeSingleTodo } from '../new-todo/new-todo.reducers'
 
 const todoAdd = (todos, action) =>
-  [...todos, newTodoChange(undefined, action)]
+  [...todos, changeSingleTodo(undefined, action)]
 
-const todoChange = (todos, {id, ...rest}) => [
+const todoChange = (todos, {id, ...options}) => [
   ...todos.slice(0, id),
-  newTodoChange(todos[id], rest),
+  changeSingleTodo(todos[id], options),
   ...todos.slice(id + 1)
 ]
 
@@ -16,7 +16,7 @@ const todoRemove = (todos, {id}) => [
 
 const toggleCompleted = (todos, {id}) => [
   ...todos.slice(0, id),
-  newTodoChange(todos[id], {completed: !todos[id].completed}),
+  changeSingleTodo(todos[id], {completed: !todos[id].completed}),
   ...todos.slice(id + 1)
 ]
 
