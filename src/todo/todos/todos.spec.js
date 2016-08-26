@@ -54,6 +54,7 @@ describe('todos', () => {
       const action = toggleCompletedTodo({id: 1})
       const actual = toggleCompleted(initial, action)
 
+      console.log('actual', actual);
       expect(actual).to.deep.equal([
         {title: 'Be happy, my friend'},
         {title: 'Hope you will be ok', completed: true}

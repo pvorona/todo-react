@@ -1,4 +1,5 @@
-const newTodoClear = (state, action) => ''
-const newTodoChange = (state, {title}) => title
+const newTodoClear = (state, action) => ({title: ''})
+const newTodoChange = (state, {type, ...rest}) =>
+  Object.assign({}, state, rest)
 
 export { newTodoClear, newTodoChange }

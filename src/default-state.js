@@ -1,6 +1,6 @@
 const defaultState = {
   todos: [],
-  newTodo: ''
+  newTodo: {}
 }
 
 export { defaultState }

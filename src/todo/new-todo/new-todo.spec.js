@@ -8,7 +8,7 @@ describe('newTodo', () => {
       const action = clearNewTodo()
       const actual = newTodoClear({}, action)
 
-      expect(actual).to.equal('')
+      expect(actual).to.deep.equal({title: ''})
     })
   })
 
@@ -17,7 +17,7 @@ describe('newTodo', () => {
       const action = changeNewTodo({title: 'Good things are coming!'})
       const actual = newTodoChange({}, action)
 
-      expect(actual).to.deep.equal('Good things are coming!')
+      expect(actual).to.deep.equal({title: 'Good things are coming!'})
     })
   })
 })
