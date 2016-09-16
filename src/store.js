@@ -12,10 +12,10 @@ const reducers = combineReducers({
   newTodo: newTodoReducer
 })
 
-const enhancer = compose(window.devToolsExtension && window.devToolsExtension())
+// const enhancer = compose(window.devToolsExtension && window.devToolsExtension())
 // const enhancer = compose(applyMiddleware(multi), window.devToolsExtension && window.devToolsExtension())
 
-const store = createStore(reducers, initialState, enhancer)
+const store = createStore(reducers, initialState, window.devToolsExtension && window.devToolsExtension())
 
 store.subscribe(throttle(() => {
   save('state', store.getState())
