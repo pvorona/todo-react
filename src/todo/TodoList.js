@@ -16,10 +16,6 @@ const mapTodos = ({todos, changeTodo, removeTodo}) =>
         value={todo.title}
         onDbClick={() => console.log('lol')}
       />
-      <div
-        className="c-input__remove"
-        onClick={removeTodo.bind(this, i)}
-      />
     </li>)
 
 const mapDispatchToProps = (dispatch) => ({

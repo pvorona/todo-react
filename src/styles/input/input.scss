@@ -9,6 +9,7 @@
   padding: 11px 55px 11px 15px;
   font-size: 3.5vmin;
   flex: 1;
+  transition: box-shadow .5s, background .25s .25s;
 
   &::selection {
     background-color: $g-color-selection;
@@ -38,10 +39,9 @@
   }
 
   &--animated-shadow {
-    transition: box-shadow 1s;
-
     &:focus, &[placeholder]:not(:placeholder-shown) {
       box-shadow: 0 25px 35px -15px $g-color-shadow;
+      transition: box-shadow .25s .25s, background .5s;
     }
   }
 
@@ -50,12 +50,9 @@
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: 0 2px;
-    transition: background .5s;
 
     &:focus, &[placeholder]:not(:placeholder-shown) {
-      // animation: a-input-animated-border-1-in .5s forwards;
       background-size: 100% 2px;
-
     }
   }
 
