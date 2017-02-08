@@ -10,7 +10,6 @@
   font-size: 3.5vmin;
   flex: 1;
   transition: box-shadow .5s, background .25s .25s;
-  // transition: box-shadow .25s .25s, background .5s;
 
   &::selection {
     background-color: $g-color-selection;
