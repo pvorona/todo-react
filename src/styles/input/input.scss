@@ -41,6 +41,8 @@
   &--animated-shadow {
 
     &:focus, &[placeholder]:not(:placeholder-shown) {
+      // box-shadow: 0 20px 30px -15px $g-color-shadow;
+      // box-shadow: 0 20px 20px -15px $g-color-shadow;
       box-shadow: 0 25px 35px -15px $g-color-shadow;
       transition: box-shadow .25s .25s, background .5s;
     }
